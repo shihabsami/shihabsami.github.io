@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="../src/index.js" async></script>
+    <title>Shihab Sami</title>
+  </head>
+  <body>
+    <div class="grid grid-rows-6 grid-cols-12 items-center w-screen h-screen bg-white dark:bg-gray-700">
+      <div class="grid grid-cols-12 self-start col-span-full sticky top-3">
+        <div class="col-start-2 col-span-1 font-bold navbar-item">Logo</div>
+        <div class="flex justify-center gap-8 col-span-8">
+          <span class="navbar-item">Home</span>
+          <span class="navbar-item">About</span>
+          <span class="navbar-item">Skills</span>
+          <span class="navbar-item">Works</span>
+          <span class="navbar-item">Contact</span>
+        </div>
+        <div class="col-span-2 flex">
+          <label class="theme-switch relative inline-block w-14 h-7">
+            <input type="checkbox" class="hidden" />
+            <span
+              class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out bg-gray-400 rounded-2xl absolute cursor-pointer top-0 left-0 bottom-0 right-0"
+            >
+              <img src="./moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
+              <img src="./sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
+            </span>
+          </label>
+        </div>
+      </div>
+      <div class="row-start-3 row-span-2 place-self-end col-start-12 w-1/2 h-full relative flex justify-center">
+        <img src="./arrow-body.svg" alt="Navigation Arrow Body" class="w-8" />
+        <img src="./arrow-button.svg" alt="Navigation Arrow Body" class="absolute bottom-0 right-1/6 w-1/3" />
+      </div>
+    </div>
+  </body>
+</html>

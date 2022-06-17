@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+.navbar-item {
+  @apply text-xl dark:text-white;
+}
+
+.theme-switch .slider:after {
+  position: absolute;
+  content: "";
+  height: 80%;
+  width: 40%;
+  left: 5%;
+  bottom: 10%;
+  @apply drop-shadow-lg rounded-full bg-white transition-transform;
+}
+
+.theme-switch input:checked + .slider:after {
+  transform: translateX(125%);
+}
+
+.theme-switch input:checked + .slider #moon,
+.theme-switch .slider #sun {
+  transform: scale(0.9);
+}
+
+.theme-switch .slider #moon,
+.theme-switch input:checked + .slider #sun {
+  transform: scale(0.1);
+}
