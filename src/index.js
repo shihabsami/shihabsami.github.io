@@ -9,8 +9,7 @@ window.onload = function () {
   themeSwitch.addEventListener("change", switchTheme, false);
 
   function handleScroll() {
-    let elements = document.getElementsByClassName("page-item");
-    const arrowTextElement = document.getElementById("arrow-text");
+    let pageItemElements = document.getElementsByClassName("page-item");
     const topArrowButton = document.getElementById("top-arrow-button");
     const bottomArrowButton = document.getElementById("bottom-arrow-button");
 
@@ -19,8 +18,8 @@ window.onload = function () {
 
     let closestElementIndex = 0;
     let closestDistance = Infinity;
-    for (let i = 0; i < elements.length; i++) {
-      let element = elements[i];
+    for (let i = 0; i < pageItemElements.length; i++) {
+      let element = pageItemElements[i];
       let distance = Math.abs(scrollPosition - element.offsetTop);
       if (distance <= closestDistance) {
         closestElementIndex = i;
@@ -28,38 +27,24 @@ window.onload = function () {
       }
     }
 
-    arrowTextElement.innerHTML = elements[closestElementIndex].id
-      .at(0)
-      .toUpperCase()
-      .concat(elements[closestElementIndex].id.substring(1));
+    let arrowTextElements = document.getElementsByClassName("arrow-text");
+    for (let i = 0; i < arrowTextElements.length; i++) {
+      if (i !== closestElementIndex) arrowTextElements[i].classList.replace("currently-visible", "currently-hidden");
+      else arrowTextElements[i].classList.replace("currently-hidden", "currently-visible");
+    }
 
-    arrowTextElement.classList.forEach((className) => arrowTextElement.classList.remove(className));
-    arrowTextElement.classList.add("row-span-1", "text-md", "self-center", "rotate-90", "transition-all", "bg-white");
     switch (closestElementIndex) {
       case 0:
-        arrowTextElement.classList.add("row-start-1");
-        topArrowButton.classList.add("hidden");
-        bottomArrowButton.classList.remove("hidden");
+        topArrowButton.classList.replace("opacity-100", "opacity-0");
+        bottomArrowButton.classList.replace("opacity-0", "opacity-100");
         break;
       case 1:
-        arrowTextElement.classList.add("row-start-2");
-        topArrowButton.classList.remove("hidden");
-        bottomArrowButton.classList.remove("hidden");
-        break;
-      case 2:
-        arrowTextElement.classList.add("row-start-3");
-        topArrowButton.classList.remove("hidden");
-        bottomArrowButton.classList.remove("hidden");
-        break;
-      case 3:
-        arrowTextElement.classList.add("row-start-4");
-        topArrowButton.classList.remove("hidden");
-        bottomArrowButton.classList.remove("hidden");
+        topArrowButton.classList.replace("opacity-0", "opacity-100");
+        bottomArrowButton.classList.replace("opacity-0", "opacity-100");
         break;
       case 4:
-        arrowTextElement.classList.add("row-start-5");
-        topArrowButton.classList.remove("hidden");
-        bottomArrowButton.classList.add("hidden");
+        topArrowButton.classList.replace("opacity-0", "opacity-100");
+        bottomArrowButton.classList.replace("opacity-100", "opacity-0");
         break;
       default:
         break;

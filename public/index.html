@@ -42,11 +42,35 @@
           id="top-arrow-button"
           src="./arrow-button.svg"
           alt="Navigation Arrow Button"
-          class="self-end row-start-1 row-span-1 rotate-180 hidden"
+          class="self-end row-start-1 row-span-1 rotate-180 opacity-100 transition-opacity"
         />
         <div class="relative h-full flex justify-center row-start-2 row-span-1">
-          <div class="absolute grid grid-rows-5 h-full">
-            <div id="arrow-text" class="text-md self-center rotate-90 transition-all bg-white">Home</div>
+          <div class="absolute grid grid-rows-5 h-full place-items-center items-center">
+            <div
+              class="arrow-text currently-hidden row-start-1 row-span-1 text-md rotate-90 transition-opacity bg-white"
+            >
+              Home
+            </div>
+            <div
+              class="arrow-text currently-hidden row-start-2 row-span-1 text-md rotate-90 transition-opacity bg-white"
+            >
+              About
+            </div>
+            <div
+              class="arrow-text currently-hidden row-start-3 row-span-1 text-md rotate-90 transition-opacity bg-white"
+            >
+              Skills
+            </div>
+            <div
+              class="arrow-text currently-hidden row-start-4 row-span-1 text-md rotate-90 transition-opacity bg-white"
+            >
+              Works
+            </div>
+            <div
+              class="arrow-text currently-hidden row-start-5 row-span-1 text-md rotate-90 transition-opacity bg-white"
+            >
+              Contact
+            </div>
           </div>
           <img src="./arrow-body.svg" alt="Navigation Arrow Body" />
         </div>
@@ -54,7 +78,7 @@
           id="bottom-arrow-button"
           src="./arrow-button.svg"
           alt="Navigation Arrow Button"
-          class="self-start place-self-center row-start-3 row-span-1"
+          class="self-start place-self-center row-start-3 row-span-1 opacity-0 transition-opacity"
         />
       </div>
       <div id="home" class="page-item w-full h-screen border-red-200 border-4">Home</div>

@@ -33,3 +33,11 @@ body {
 .theme-switch input:checked + .slider #sun {
   transform: scale(0.1);
 }
+
+.arrow-text.currently-hidden {
+  @apply opacity-0 transition-all;
+}
+
+.arrow-text.currently-visible {
+  @apply opacity-100 transition-all;
+}
