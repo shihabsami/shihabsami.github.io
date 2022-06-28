@@ -6,18 +6,25 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
+.page-item {
+  @apply w-full h-screen;
+}
+
 .navbar-item {
-  @apply text-xl dark:text-white;
+  @apply text-xl;
+}
+
+.navbar-item.active {
+  @apply font-bold;
 }
 
 .theme-switch .slider:after {
-  position: absolute;
   content: "";
   height: 80%;
   width: 40%;
   left: 5%;
   bottom: 10%;
-  @apply drop-shadow-lg rounded-full bg-white transition-transform;
+  @apply absolute drop-shadow-lg rounded-full bg-white transition-transform;
 }
 
 .theme-switch input:checked + .slider:after {
@@ -34,10 +41,18 @@ body {
   transform: scale(0.1);
 }
 
-.arrow-text.currently-hidden {
-  @apply opacity-0 transition-all;
+.arrow-text-item.shown {
+  @apply opacity-100;
 }
 
-.arrow-text.currently-visible {
-  @apply opacity-100 transition-all;
+.arrow-text-item {
+  @apply text-center row-span-1 rotate-90  opacity-0 transition-opacity bg-white p-1;
+}
+
+.arrow-button {
+  @apply opacity-0 row-span-1 transition-opacity bg-white p-1;
+}
+
+.arrow-button.shown {
+  @apply opacity-100;
 }

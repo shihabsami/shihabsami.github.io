@@ -1,21 +1,27 @@
 window.onload = function () {
+  // Get the theme switch input button.
   const themeSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
+  // The event handler for the theme switch.
   function switchTheme(e) {
+    // Add or remove the 'dark' class from the body.
     if (e.target.checked) document.body.classList.add("dark");
     else document.body.classList.remove("dark");
   }
 
+  // Add the theme switch event listener.
   themeSwitch.addEventListener("change", switchTheme, false);
 
+  // The scroll event handler.
   function handleScroll() {
-    let pageItemElements = document.getElementsByClassName("page-item");
-    const topArrowButton = document.getElementById("top-arrow-button");
-    const bottomArrowButton = document.getElementById("bottom-arrow-button");
-
+    // The current scroll position.
     let scrollPosition =
       window.pageYOffset || window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
 
+    // All the page items i.e., sections of the page.
+    let pageItemElements = document.getElementsByClassName("page-item");
+
+    // Determine the current page item.
     let closestElementIndex = 0;
     let closestDistance = Infinity;
     for (let i = 0; i < pageItemElements.length; i++) {
@@ -27,29 +33,44 @@ window.onload = function () {
       }
     }
 
-    let arrowTextElements = document.getElementsByClassName("arrow-text");
-    for (let i = 0; i < arrowTextElements.length; i++) {
-      if (i !== closestElementIndex) arrowTextElements[i].classList.replace("currently-visible", "currently-hidden");
-      else arrowTextElements[i].classList.replace("currently-hidden", "currently-visible");
+    // All the navbar items i.e., links on the navbar.
+    let navbarItems = document.getElementsByClassName("navbar-item");
+
+    // Set the active navbar item.
+
+    console.log("closestElementIndex", closestElementIndex);
+    console.log("navbarItems", navbarItems);
+
+    for (let i = 0; i < navbarItems.length; i++) {
+      if (i === closestElementIndex) navbarItems[i].classList.add("active");
+      else navbarItems[i].classList.remove("active");
     }
 
-    switch (closestElementIndex) {
-      case 0:
-        topArrowButton.classList.replace("opacity-100", "opacity-0");
-        bottomArrowButton.classList.replace("opacity-0", "opacity-100");
-        break;
-      case 1:
-        topArrowButton.classList.replace("opacity-0", "opacity-100");
-        bottomArrowButton.classList.replace("opacity-0", "opacity-100");
-        break;
-      case 4:
-        topArrowButton.classList.replace("opacity-0", "opacity-100");
-        bottomArrowButton.classList.replace("opacity-100", "opacity-0");
-        break;
-      default:
-        break;
+    // All the arrow text items i.e., reflecting the current page item.
+    let arrowTextElements = document.getElementsByClassName("arrow-text-item");
+
+    // Set the currently visible arrow text item.
+    for (let i = 0; i < arrowTextElements.length; i++) {
+      if (i === closestElementIndex) arrowTextElements[i].classList.add("shown");
+      else arrowTextElements[i].classList.remove("shown");
+    }
+
+    // The top arrow button of the navigation arrow.
+    const topArrowButton = document.getElementById("top-arrow-button");
+    // The bottom arrow button of the navigation arrow.
+    const bottomArrowButton = document.getElementById("bottom-arrow-button");
+    if (scrollPosition === 0) {
+      topArrowButton.classList.remove("shown");
+      bottomArrowButton.classList.add("shown");
+    } else if (document.body.scrollHeight - document.body.scrollTop === document.body.clientHeight) {
+      topArrowButton.classList.add("shown");
+      bottomArrowButton.classList.remove("shown");
+    } else {
+      topArrowButton.classList.add("shown");
+      bottomArrowButton.classList.add("shown");
     }
   }
 
+  // Add the scroll event listener.
   window.addEventListener("scroll", handleScroll);
 };

@@ -16,14 +16,14 @@
   </head>
   <body>
     <div class="relative">
-      <div class="fixed grid grid-cols-12 mt-3 w-full">
-        <div class="col-start-2 col-span-1 font-bold navbar-item">Logo</div>
+      <div class="fixed grid grid-cols-12 py-3 w-full bg-white">
+        <div class="col-start-2 col-span-1 font-bold text-xl text-black">PLACEHOLDER</div>
         <div class="flex justify-center gap-8 col-span-8">
-          <a href="#" class="navbar-item">Home</a>
-          <a href="#" class="navbar-item">About</a>
-          <a href="#" class="navbar-item">Skills</a>
-          <a href="#" class="navbar-item">Works</a>
-          <a href="#" class="navbar-item">Contact</a>
+          <a href="#home" class="navbar-item active">Home</a>
+          <a href="#about" class="navbar-item">About</a>
+          <a href="#skills" class="navbar-item">Skills</a>
+          <a href="#works" class="navbar-item">Works</a>
+          <a href="#contact" class="navbar-item">Contact</a>
         </div>
         <div class="col-span-2 flex">
           <label class="theme-switch relative inline-block w-14 h-7">
@@ -42,35 +42,15 @@
           id="top-arrow-button"
           src="./arrow-button.svg"
           alt="Navigation Arrow Button"
-          class="self-end row-start-1 row-span-1 rotate-180 opacity-100 transition-opacity"
+          class="arrow-button self-end row-start-1 rotate-180"
         />
         <div class="relative h-full flex justify-center row-start-2 row-span-1">
-          <div class="absolute grid grid-rows-5 h-full place-items-center items-center">
-            <div
-              class="arrow-text currently-hidden row-start-1 row-span-1 text-md rotate-90 transition-opacity bg-white"
-            >
-              Home
-            </div>
-            <div
-              class="arrow-text currently-hidden row-start-2 row-span-1 text-md rotate-90 transition-opacity bg-white"
-            >
-              About
-            </div>
-            <div
-              class="arrow-text currently-hidden row-start-3 row-span-1 text-md rotate-90 transition-opacity bg-white"
-            >
-              Skills
-            </div>
-            <div
-              class="arrow-text currently-hidden row-start-4 row-span-1 text-md rotate-90 transition-opacity bg-white"
-            >
-              Works
-            </div>
-            <div
-              class="arrow-text currently-hidden row-start-5 row-span-1 text-md rotate-90 transition-opacity bg-white"
-            >
-              Contact
-            </div>
+          <div class="absolute grid grid-rows-5 h-full items-center">
+            <div class="arrow-text-item shown row-start-1">Home</div>
+            <div class="arrow-text-item row-start-2">About</div>
+            <div class="arrow-text-item row-start-3">Skills</div>
+            <div class="arrow-text-item row-start-4">Works</div>
+            <div class="arrow-text-item row-start-5">Contact</div>
           </div>
           <img src="./arrow-body.svg" alt="Navigation Arrow Body" />
         </div>
@@ -78,14 +58,24 @@
           id="bottom-arrow-button"
           src="./arrow-button.svg"
           alt="Navigation Arrow Button"
-          class="self-start place-self-center row-start-3 row-span-1 opacity-0 transition-opacity"
+          class="arrow-button shown self-start place-self-center row-start-3"
         />
       </div>
-      <div id="home" class="page-item w-full h-screen border-red-200 border-4">Home</div>
-      <div id="about" class="page-item w-full h-screen border-blue-200 border-4">About</div>
-      <div id="skills" class="page-item w-full h-screen border-green-200 border-4">Skills</div>
-      <div id="works" class="page-item w-full h-screen border-purple-200 border-4">Works</div>
-      <div id="contact" class="page-item w-full h-screen border-gray-200 border-4">Contact</div>
+      <div id="home" class="page-item border-red-200 border-4">
+        <div class="flex justify-center items-center w-full h-full">
+          <div class="flex flex-col justify-center">
+            <div class="text-3xl mb-8">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
+            <div class="text-md mr-8">
+              A full-stack developer, interested in all things programming. Let&#39;s have a chat.
+            </div>
+          </div>
+          <div class="w-96 h-96 bg-slate-200 rounded-3xl"></div>
+        </div>
+      </div>
+      <div id="about" class="page-item border-blue-200 border-4">About</div>
+      <div id="skills" class="page-item border-green-200 border-4">Skills</div>
+      <div id="works" class="page-item border-purple-200 border-4">Works</div>
+      <div id="contact" class="page-item border-gray-200 border-4">Contact</div>
     </div>
   </body>
 </html>
