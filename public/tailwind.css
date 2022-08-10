@@ -6,10 +6,6 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
-.page-item {
-  @apply w-full h-screen;
-}
-
 .navbar-item {
   @apply text-xl;
 }
@@ -20,15 +16,11 @@ body {
 
 .theme-switch .slider:after {
   content: "";
-  height: 80%;
-  width: 40%;
-  left: 5%;
-  bottom: 10%;
-  @apply absolute drop-shadow-lg rounded-full bg-white transition-transform;
+  @apply absolute w-1/2 h-full left-0 top-0 bg-white border-[3px] border-black transition-transform;
 }
 
 .theme-switch input:checked + .slider:after {
-  transform: translateX(125%);
+  transform: translateX(100%);
 }
 
 .theme-switch input:checked + .slider #moon,
@@ -46,13 +38,21 @@ body {
 }
 
 .arrow-text-item {
-  @apply text-center row-span-1 rotate-90  opacity-0 transition-opacity bg-white p-1;
+  @apply text-sm lg:text-lg text-center row-span-1 rotate-90 opacity-0 transition-opacity bg-white p-1;
 }
 
 .arrow-button {
-  @apply opacity-0 row-span-1 transition-opacity bg-white p-1;
+  @apply opacity-0 row-span-1 transition-opacity bg-white p-1 scale-75 lg:scale-100;
 }
 
 .arrow-button.shown {
   @apply opacity-100;
+}
+
+#navbar-menu {
+  @apply -translate-y-full opacity-0;
+}
+
+#navbar-menu.shown {
+  @apply translate-y-0 opacity-100;
 }

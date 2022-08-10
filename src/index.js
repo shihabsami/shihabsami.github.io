@@ -37,12 +37,9 @@ window.onload = function () {
     let navbarItems = document.getElementsByClassName("navbar-item");
 
     // Set the active navbar item.
-
-    console.log("closestElementIndex", closestElementIndex);
-    console.log("navbarItems", navbarItems);
-
     for (let i = 0; i < navbarItems.length; i++) {
-      if (i === closestElementIndex) navbarItems[i].classList.add("active");
+      if (navbarItems[i].innerHTML.toLowerCase() === pageItemElements[closestElementIndex].id)
+        navbarItems[i].classList.add("active");
       else navbarItems[i].classList.remove("active");
     }
 
@@ -73,4 +70,15 @@ window.onload = function () {
 
   // Add the scroll event listener.
   window.addEventListener("scroll", handleScroll);
+
+  function toggleNavbarMenu() {
+    document.getElementById("navbar-menu").classList.toggle("shown");
+  }
+
+  document.getElementById("navbar-expand-button").addEventListener("click", toggleNavbarMenu);
+  document.getElementById("navbar-close-button").addEventListener("click", toggleNavbarMenu);
+  const navbarMenuItems = document.querySelectorAll("#navbar-menu > div > .navbar-item");
+  for (let i = 0; i < navbarMenuItems.length; i++) {
+    navbarMenuItems[i].addEventListener("click", toggleNavbarMenu);
+  }
 };

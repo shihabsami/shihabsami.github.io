@@ -16,28 +16,64 @@
   </head>
   <body>
     <div class="relative">
+      <!-- Navbar for browser. -->
       <div class="fixed grid grid-cols-12 py-3 w-full bg-white">
+        <!-- Personal logo. -->
         <div class="col-start-2 col-span-1 font-bold text-xl text-black">PLACEHOLDER</div>
-        <div class="flex justify-center gap-8 col-span-8">
+        <!-- Navbar items. -->
+        <div class="hidden lg:flex lg:justify-center lg:gap-8 lg:col-span-8">
           <a href="#home" class="navbar-item active">Home</a>
           <a href="#about" class="navbar-item">About</a>
           <a href="#skills" class="navbar-item">Skills</a>
           <a href="#works" class="navbar-item">Works</a>
           <a href="#contact" class="navbar-item">Contact</a>
         </div>
-        <div class="col-span-2 flex">
-          <label class="theme-switch relative inline-block w-14 h-7">
+        <!-- Switch for theme. -->
+        <div
+          class="col-start-9 col-span-2 lg:col-start-11 lg:col-span-1 lg:place-self-end place-self-center h-full flex items-center"
+        >
+          <label class="theme-switch relative inline-block w-11 h-[22px] lg:w-12 lg:h-6">
             <input type="checkbox" class="hidden" />
             <span
-              class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out bg-gray-400 rounded-2xl absolute cursor-pointer top-0 left-0 bottom-0 right-0"
+              class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
             >
               <img src="./moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
               <img src="./sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
             </span>
           </label>
         </div>
+        <!-- Button to expand the navbar menu. -->
+        <div
+          id="navbar-expand-button"
+          class="lg:hidden flex justify-center col-start-11 col-span-1 place-self-end h-full cursor-pointer items-center"
+        >
+          <img src="./expand.svg" alt="Expand" />
+        </div>
       </div>
-      <div class="fixed right-0 h-full grid grid-rows-3 place-items-center mr-4">
+
+      <!-- The navbar menu for mobile devices. -->
+      <div id="navbar-menu" class="fixed w-full h-full transition-all bg-white z-10">
+        <!-- The navbar menu items. -->
+        <div class="flex flex-col justify-center items-center gap-4 w-full h-full">
+          <a href="#home" class="navbar-item active">Home</a>
+          <a href="#about" class="navbar-item">About</a>
+          <a href="#skills" class="navbar-item">Skills</a>
+          <a href="#works" class="navbar-item">Works</a>
+          <a href="#contact" class="navbar-item">Contact</a>
+        </div>
+        <!-- Button to close the navbar menu. -->
+        <div class="absolute top-0 w-full py-4 grid grid-cols-12">
+          <div
+            id="navbar-close-button"
+            class="flex justify-center col-start-11 col-span-1 place-self-end h-full cursor-pointer"
+          >
+            <img src="./cross.svg" alt="Cross" />
+          </div>
+        </div>
+      </div>
+
+      <!-- The arrow navigation element. -->
+      <div class="fixed right-0 h-full grid grid-rows-3 place-items-center lg:mr-4 pointer-events-none">
         <img
           id="top-arrow-button"
           src="./arrow-button.svg"
@@ -58,23 +94,80 @@
           id="bottom-arrow-button"
           src="./arrow-button.svg"
           alt="Navigation Arrow Button"
-          class="arrow-button shown self-start place-self-center row-start-3"
+          class="arrow-button shown w- self-start place-self-center row-start-3"
         />
       </div>
-      <div id="home" class="page-item border-red-200 border-4">
-        <div class="flex justify-center items-center w-full h-full">
-          <div class="flex flex-col justify-center">
-            <div class="text-3xl mb-8">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
-            <div class="text-md mr-8">
+
+      <!-- Home section. -->
+      <div id="home" class="page-item border-red-200 border-4 w-full h-screen">
+        <div class="gap-2 lg:gap-0 grid grid-cols-12 w-full h-full">
+          <div
+            class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:col-span-4 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center"
+          >
+            <div class="text-2xl">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
+            <div class="text-md">
               A full-stack developer, interested in all things programming. Let&#39;s have a chat.
             </div>
+            <div class="lg:hidden w-full h-16 border-red-400 border-4"></div>
           </div>
-          <div class="w-96 h-96 bg-slate-200 rounded-3xl"></div>
+          <div class="hidden lg:block col-start-7 col-span-5 w-full h-full border-red-400 border-4"></div>
         </div>
       </div>
-      <div id="about" class="page-item border-blue-200 border-4">About</div>
+
+      <!-- About section. -->
+      <div id="about" class="page-item border-blue-200 border-4 w-full min-h-screen lg:h-screen">
+        <div class="gap-y-16 lg:gap-0 grid grid-cols-12 grid-rows-3 auto-rows-fr w-full h-full my-[52px] lg:my-0">
+          <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-end row-start-1 w-full">
+            <div class="border-blue-400 border-4 w-full h-16"></div>
+          </div>
+          <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-end w-full flex">
+            <div class="flex flex-col gap-y-4 justify-center">
+              <div class="text-xl font-bold">Education</div>
+              <div class="text-sm">
+                I&#39;m pursuing my bachelor&#39;s degree in Computer Science. Currently, in my final semester. Striving
+                to provide the best performance always, as is reflected on my university grades with a high distinction
+                weighted average.
+              </div>
+              <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+            </div>
+          </div>
+          <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-center w-full">
+            <div class="border-blue-400 border-4 w-full h-16"></div>
+          </div>
+          <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-center row-span-1 w-full flex">
+            <div class="flex flex-col gap-y-4 justify-center">
+              <div class="text-xl font-bold">Experience</div>
+              <div class="text-sm">
+                I don&#39;t possess any remarkable work experience in the technology industry. However, I&#39;m very
+                passionate about my work, and excited to join the industry soon as I graduate.
+              </div>
+              <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+            </div>
+          </div>
+          <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-start w-full">
+            <div class="border-blue-400 border-4 w-full h-16"></div>
+          </div>
+          <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-start row-span-1 w-full flex">
+            <div class="flex flex-col gap-y-4 justify-center">
+              <div class="text-xl font-bold">Life</div>
+              <div class="text-sm">
+                In my pastime, I like to watch movies (preferably comedy or thriller), documentaries, listen to music
+                (any language or genre). I also love cooking although I&#39;m not the best chef. I can be quite
+                introverted at times.
+              </div>
+              <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills section. -->
       <div id="skills" class="page-item border-green-200 border-4">Skills</div>
+
+      <!-- Works section. -->
       <div id="works" class="page-item border-purple-200 border-4">Works</div>
+
+      <!-- Contact section. -->
       <div id="contact" class="page-item border-gray-200 border-4">Contact</div>
     </div>
   </body>
