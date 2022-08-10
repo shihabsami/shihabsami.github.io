@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "watch:css": "yarn tailwindcss -i ./public/tailwind.css -o ./public/style.css --watch",
+    "watch:css": "yarn tailwindcss -i tailwind.css -o style.css --watch",
     "watch:html": "yarn five-server",
     "start": "concurrently \"yarn watch:css\" \"yarn watch:html\" -k -t"
   },
