@@ -1,0 +1,139 @@
+#react-level::after {
+  @apply w-[80%];
+}
+
+#nextjs-level::after {
+  @apply w-[75%];
+}
+
+#materialui-level::after {
+  @apply w-[80%];
+}
+
+#chakraui-level::after {
+  @apply w-[80%];
+}
+
+#tailwindcss-level::after {
+  @apply w-[90%];
+}
+
+#bootstrap-level::after {
+  @apply w-[50%];
+}
+
+#flutter-level::after {
+  @apply w-[25%];
+}
+
+#spring-level::after {
+  @apply w-[90%];
+}
+
+#nodejs-level::after {
+  @apply w-[80%];
+}
+
+#expressjs-level::after {
+  @apply w-[75%];
+}
+
+#apollographql-level::after {
+  @apply w-[70%];
+}
+
+#aspnetcore-level::after {
+  @apply w-[25%];
+}
+
+#mysql-level::after {
+  @apply w-[80%];
+}
+
+#postgresql-level::after {
+  @apply w-[70%];
+}
+
+#sqlite-level::after {
+  @apply w-[50%];
+}
+
+#mongodb-level::after {
+  @apply w-[80%];
+}
+
+#redis-level::after {
+  @apply w-[70%];
+}
+
+#rds-level::after {
+  @apply w-[80%];
+}
+
+#s3-level::after {
+  @apply w-[80%];
+}
+
+#cloudfront-level::after {
+  @apply w-[70%];
+}
+
+#lambda-level::after {
+  @apply w-[80%];
+}
+
+#apigateway-level::after {
+  @apply w-[60%];
+}
+
+#ecs-level::after {
+  @apply w-[60%];
+}
+
+#elasticbeanstalk-level::after {
+  @apply w-[60%];
+}
+
+#azuressqlserver-level::after {
+  @apply w-[25%];
+}
+
+#docker-level::after {
+  @apply w-[80%];
+}
+
+#circleci-level::after {
+  @apply w-[60%];
+}
+
+#githubactions-level::after {
+  @apply w-[60%];
+}
+
+#jira-level::after {
+  @apply w-[70%];
+}
+
+#trello-level::after {
+  @apply w-[80%];
+}
+
+#slack-level::after {
+  @apply w-[80%];
+}
+
+#jetbrainsides-level::after {
+  @apply w-[90%];
+}
+
+#visualstudiocode-level::after {
+  @apply w-[90%];
+}
+
+#figma-level::after {
+  @apply w-[70%];
+}
+
+#postman-level::after {
+  @apply w-[70%];
+}

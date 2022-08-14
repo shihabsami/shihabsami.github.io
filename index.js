@@ -66,6 +66,19 @@ window.onload = function () {
       topArrowButton.classList.add("shown");
       bottomArrowButton.classList.add("shown");
     }
+
+    // The level elements of the skill items.
+    const skillItemLevels = document.getElementsByClassName("skill-item-level");
+    console.log(skillItemLevels);
+    for (let i = 0; i < skillItemLevels.length; i++) {
+      if (scrollPosition + window.innerHeight >= skillItemLevels[i].offsetTop) {
+        // The skill item is visible. Animate.
+        skillItemLevels[i].classList.add("animate");
+      } else {
+        // The skill item is not visible.
+        skillItemLevels[i].classList.remove("animate");
+      }
+    }
   }
 
   // Add the scroll event listener.
