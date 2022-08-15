@@ -109,7 +109,36 @@ body {
   @apply bg-gray-400 h-3 z-10 block;
 }
 
+.portfolio-item-container {
+  @apply bg-gray-100 p-3;
+}
+
+.portfolio-item {
+  grid-template-columns: 1.5fr 3fr;
+  @apply w-full grid gap-3 bg-white;
+}
+
+.portfolio-item-image {
+  @apply w-auto h-full object-cover border-gray-200 border-4;
+}
+
+.portfolio-item-body {
+  @apply flex flex-col gap-1;
+}
+
+.portfolio-item-tags {
+  @apply flex gap-2;
+}
+
+.portfolio-item-tag {
+  @apply text-xs bg-gray-200 text-center px-1.5 py-0.5 rounded-full;
+}
+
+.portfolio-item-heading {
+  @apply text-xl font-bold;
+}
+
 .contact-item {
   content: "";
-  @apply h-10 w-10
+  @apply h-10 w-10;
 }
