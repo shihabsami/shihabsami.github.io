@@ -795,6 +795,11 @@ video {
   margin-bottom: 52px;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .ml-8 {
   margin-left: 2rem;
 }
@@ -809,6 +814,10 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .inline-block {
@@ -1031,6 +1040,10 @@ video {
   padding-top: 4rem;
 }
 
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1044,6 +1057,11 @@ video {
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-bold {
@@ -1238,11 +1256,6 @@ body {
   width: 1.5rem;
 }
 
-#chakraui-logo {
-  height: 1.5rem;
-  width: 5rem;
-}
-
 .skill-item-level {
   display: block;
   height: 0.75rem;
@@ -1278,19 +1291,13 @@ body {
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
+.contact-item {
+  content: "";
+  height: 2.5rem;
+  width: 2.5rem
+}
+
 @media (min-width: 768px) {
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:h-6 {
-    height: 1.5rem;
-  }
-
-  .md\:w-12 {
-    width: 3rem;
-  }
-
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

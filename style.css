@@ -91,10 +91,6 @@ body {
   @apply w-6 h-6;
 }
 
-#chakraui-logo {
-  @apply w-20 h-6;
-}
-
 .skill-item-level {
   @apply bg-gray-200 w-full h-3 block;
 }
@@ -111,4 +107,9 @@ body {
   animation-duration: 2s;
   animation-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
   @apply bg-gray-400 h-3 z-10 block;
+}
+
+.contact-item {
+  content: "";
+  @apply h-10 w-10
 }

@@ -31,7 +31,7 @@
         <div class="col-end-12 flex items-center justify-self-end">
           <!-- Switch for theme. -->
           <div class="h-full flex items-center">
-            <label class="theme-switch relative inline-block w-11 h-[22px] ">
+            <label class="theme-switch relative inline-block w-11 h-[22px]">
               <input type="checkbox" class="hidden" />
               <span
                 class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
@@ -42,7 +42,10 @@
             </label>
           </div>
           <!-- Button to expand the navbar menu. -->
-          <div id="navbar-expand-button" class="flex lg:hidden justify-center w-full h-full cursor-pointer items-center flex-1">
+          <div
+            id="navbar-expand-button"
+            class="flex lg:hidden justify-center w-full h-full cursor-pointer items-center flex-1"
+          >
             <img class="ml-8" src="assets/expand.svg" alt="Expand" />
           </div>
         </div>
@@ -522,7 +525,39 @@
       <div id="portfolio" class="page-item border-purple-200 border-4">Portfolio</div>
 
       <!-- Contact section. -->
-      <div id="contact" class="page-item border-gray-200 border-4">Contact</div>
+      <div id="contact" class="page-item border-gray-200 border-4 flex w-full justify-center gap-8">
+        <a class="contact-item" href="https://www.linkedin.com/in/shihabsami" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" />
+        </a>
+        <a class="contact-item" href="https://github.com/shihabsami" target="_blank">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+        </a>
+        <a class="contact-item" href="https://discordapp.com/users/684202409572171777" target="_blank">
+          <img src="assets/icons/discord.svg" />
+        </a>
+        <a class="contact-item" href="https://twitter.com/_shihabsami" target="_blank">
+          <img src="assets/icons/twitter.svg" />
+        </a>
+        <a class="contact-item" href="mailto:shihabsami14120@gmail.com">
+          <img src="assets/icons/gmail.svg" />
+        </a>
+      </div>
     </div>
+
+    <!-- Footer. -->
+    <footer class="w-full flex flex-col gap-2 my-2 items-center">
+      <p class="text-sm flex items-center">
+        <span class="mr-2 font-sans">&copy;</span>
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        <span>, Created with love by <b>Shihab Sami</b>.</span>
+      </p>
+      <p class="text-sm">
+        Icons sourced from <a href="https://devicon.dev/" target="_blank">Devicon</a>,
+        <a href="https://icons8.com/" target="_blank">Icons8</a> and
+        <a href="https://awsicons.dev" target="_blank">Awsicons</a>.
+      </p>
+    </footer>
   </body>
 </html>
