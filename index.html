@@ -17,37 +17,34 @@
   <body>
     <div class="relative">
       <!-- Navbar for browser. -->
-      <div class="fixed grid grid-cols-12 py-3 w-full bg-white">
+      <div class="fixed grid grid-cols-12 py-3 w-full h-16 bg-white items-center">
         <!-- Personal logo. -->
         <div class="col-start-2 col-span-1 font-bold text-xl text-black">PLACEHOLDER</div>
         <!-- Navbar items. -->
-        <div class="hidden lg:flex lg:justify-center lg:gap-8 lg:col-span-8">
+        <div id="navbar-container" class="hidden lg:flex justify-center gap-8 col-span-8">
           <a href="#home" class="navbar-item active">Home</a>
           <a href="#about" class="navbar-item">About</a>
           <a href="#skills" class="navbar-item">Skills</a>
-          <a href="#works" class="navbar-item">Works</a>
+          <a href="#portfolio" class="navbar-item">Portfolio</a>
           <a href="#contact" class="navbar-item">Contact</a>
         </div>
-        <!-- Switch for theme. -->
-        <div
-          class="col-start-9 col-span-2 lg:col-start-11 lg:col-span-1 lg:place-self-end place-self-center h-full flex items-center"
-        >
-          <label class="theme-switch relative inline-block w-11 h-[22px] lg:w-12 lg:h-6">
-            <input type="checkbox" class="hidden" />
-            <span
-              class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
-            >
-              <img src="assets/moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
-              <img src="assets//sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
-            </span>
-          </label>
-        </div>
-        <!-- Button to expand the navbar menu. -->
-        <div
-          id="navbar-expand-button"
-          class="lg:hidden flex justify-center col-start-11 col-span-1 place-self-end h-full cursor-pointer items-center"
-        >
-          <img src="assets/expand.svg" alt="Expand" />
+        <div class="col-end-12 flex items-center justify-self-end">
+          <!-- Switch for theme. -->
+          <div class="h-full flex items-center">
+            <label class="theme-switch relative inline-block w-11 h-[22px] ">
+              <input type="checkbox" class="hidden" />
+              <span
+                class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
+              >
+                <img src="assets/moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
+                <img src="assets//sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
+              </span>
+            </label>
+          </div>
+          <!-- Button to expand the navbar menu. -->
+          <div id="navbar-expand-button" class="flex lg:hidden justify-center w-full h-full cursor-pointer items-center flex-1">
+            <img class="ml-8" src="assets/expand.svg" alt="Expand" />
+          </div>
         </div>
       </div>
 
@@ -58,7 +55,7 @@
           <a href="#home" class="navbar-item active">Home</a>
           <a href="#about" class="navbar-item">About</a>
           <a href="#skills" class="navbar-item">Skills</a>
-          <a href="#works" class="navbar-item">Works</a>
+          <a href="#portfolio" class="navbar-item">Portfolio</a>
           <a href="#contact" class="navbar-item">Contact</a>
         </div>
         <!-- Button to close the navbar menu. -->
@@ -85,7 +82,7 @@
             <div class="arrow-text-item shown row-start-1">Home</div>
             <div class="arrow-text-item row-start-2">About</div>
             <div class="arrow-text-item row-start-3">Skills</div>
-            <div class="arrow-text-item row-start-4">Works</div>
+            <div class="arrow-text-item row-start-4">Portfolio</div>
             <div class="arrow-text-item row-start-5">Contact</div>
           </div>
           <img src="assets/arrow-body.svg" alt="Navigation Arrow Body" />
@@ -99,21 +96,22 @@
       </div>
 
       <!-- Home section. -->
-      <div id="home" class="page-item border-red-200 border-4 w-full h-screen">
-        <div class="gap-2 lg:gap-0 grid grid-cols-12 w-full h-full">
-          <div
-            class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:col-span-4 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
-          >
-            <div>
-              <div class="text-2xl">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
-              <div class="text-md">
-                A full-stack developer, interested in all things programming. Let&#39;s have a chat.
-              </div>
+      <div id="home" class="page-item border-red-200 border-4 lg:gap-0 grid grid-cols-12 w-full min-h-screen pt-16">
+        <div
+          class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:pt-0 lg:col-span-4 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
+        >
+          <div>
+            <div class="text-2xl">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
+            <div class="text-md">
+              A full-stack developer, interested in all things programming. Let&#39;s have a chat.
             </div>
-            <div class="lg:hidden w-64 h-64 border-red-400 border-4"></div>
+            <div class="text-md text-red-500 mt-4">
+              This website is a work in progress. Check back soon for updates. :)
+            </div>
           </div>
-          <div class="hidden lg:block col-start-7 col-span-5 w-96 h-96 border-red-400 border-4 place-self-center"></div>
+          <div class="lg:hidden w-64 h-64 border-red-400 border-4"></div>
         </div>
+        <div class="hidden lg:block col-start-7 col-span-5 w-96 h-96 border-red-400 border-4 place-self-center"></div>
       </div>
 
       <!-- About section. -->
@@ -165,7 +163,9 @@
 
       <!-- Skills section. -->
       <div id="skills" class="page-item border-green-200 border-4 grid grid-cols-12 gap-6">
-        <div class="col-start-2 col-span-10 flex gap-16 justify-evenly">
+        <div
+          class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-start-2 col-span-10 gap-4 2xl:gap-16 xl:gap-12 lg:gap-8 justify-evenly"
+        >
           <!-- Frontend -->
           <div class="skills-item">
             <div class="skills-item-heading">Frontend</div>
@@ -518,8 +518,8 @@
         </div>
       </div>
 
-      <!-- Works section. -->
-      <div id="works" class="page-item border-purple-200 border-4">Works</div>
+      <!-- Portfolio section. -->
+      <div id="portfolio" class="page-item border-purple-200 border-4">Portfolio</div>
 
       <!-- Contact section. -->
       <div id="contact" class="page-item border-gray-200 border-4">Contact</div>
