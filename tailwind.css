@@ -901,10 +901,6 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .grid-rows-3 {
   grid-template-rows: repeat(3, minmax(0, 1fr));
 }
@@ -1098,7 +1094,7 @@ html {
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Inter", sans-serif;
 }
 
 .navbar-item {
@@ -1206,6 +1202,11 @@ body {
   opacity: 1;
 }
 
+.page-item {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 .skills-item {
   width: 100%;
 }
@@ -1290,39 +1291,37 @@ body {
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
-.portfolio-item-container {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-  padding: 0.75rem;
-}
-
 .portfolio-item {
-  grid-template-columns: 1.5fr 3fr;
-  display: grid;
+  display: flex;
   width: 100%;
-  gap: 0.75rem;
+  flex-direction: column;
+  gap: 1rem;
+  border-width: 12px;
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  padding: 1rem;
 }
 
 .portfolio-item-image {
-  height: 100%;
-  width: auto;
-  border-width: 4px;
+  display: flex;
+  align-items: center;
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.portfolio-item-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  height: auto;
+  width: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 
 .portfolio-item-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -1339,9 +1338,9 @@ body {
   line-height: 1rem;
 }
 
-.portfolio-item-heading {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.portfolio-item-head {
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 700;
 }
 

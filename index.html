@@ -10,562 +10,744 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="tailwind.css" />
-    <script src="index.js" async></script>
+    <script src="https://kit.fontawesome.com/f57a52982f.js" crossorigin="anonymous"></script>
+    <script src="script.js" async></script>
     <title>Shihab Sami</title>
   </head>
-  <body>
-    <div class="relative">
-      <!-- Navbar for browser. -->
-      <div class="fixed grid grid-cols-12 py-3 w-full h-16 bg-white items-center">
-        <!-- Personal logo. -->
-        <div class="col-start-2 col-span-1 font-bold text-xl text-black">PLACEHOLDER</div>
-        <!-- Navbar items. -->
-        <div id="navbar-container" class="hidden lg:flex justify-center gap-8 col-span-8">
-          <a href="#home" class="navbar-item active">Home</a>
-          <a href="#about" class="navbar-item">About</a>
-          <a href="#skills" class="navbar-item">Skills</a>
-          <a href="#portfolio" class="navbar-item">Portfolio</a>
-          <a href="#contact" class="navbar-item">Contact</a>
+  <body class="relative">
+    <!-- Navbar for browser. -->
+    <header class="fixed grid grid-cols-12 py-3 w-full h-16 bg-white items-center z-10">
+      <!-- Personal logo. -->
+      <div class="col-start-2 col-span-1 font-bold text-xl text-black">Shihab Sami</div>
+      <!-- Navbar items. -->
+      <nav id="navbar-container" class="hidden lg:flex justify-center gap-8 col-span-8">
+        <a href="#home" class="navbar-item active">Home</a>
+        <a href="#about" class="navbar-item">About</a>
+        <a href="#skills" class="navbar-item">Skills</a>
+        <a href="#portfolio" class="navbar-item">Portfolio</a>
+        <a href="#contact" class="navbar-item">Contact</a>
+      </nav>
+      <div class="col-end-12 flex items-center justify-self-end">
+        <!-- Switch for theme. -->
+        <div class="h-full flex items-center">
+          <label class="theme-switch relative inline-block w-11 h-[22px]">
+            <input type="checkbox" class="hidden" />
+            <span
+              class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
+            >
+              <img src="assets/moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
+              <img src="assets//sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
+            </span>
+          </label>
         </div>
-        <div class="col-end-12 flex items-center justify-self-end">
-          <!-- Switch for theme. -->
-          <div class="h-full flex items-center">
-            <label class="theme-switch relative inline-block w-11 h-[22px]">
-              <input type="checkbox" class="hidden" />
-              <span
-                class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
-              >
-                <img src="assets/moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
-                <img src="assets//sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
-              </span>
-            </label>
-          </div>
-          <!-- Button to expand the navbar menu. -->
-          <div
-            id="navbar-expand-button"
-            class="flex lg:hidden justify-center w-full h-full cursor-pointer items-center flex-1"
-          >
-            <img class="ml-8" src="assets/expand.svg" alt="Expand" />
-          </div>
-        </div>
-      </div>
-
-      <!-- The navbar menu for mobile devices. -->
-      <div id="navbar-menu" class="fixed w-full h-full transition-all bg-white z-10">
-        <!-- The navbar menu items. -->
-        <div class="flex flex-col justify-center items-center gap-4 w-full h-full">
-          <a href="#home" class="navbar-item active">Home</a>
-          <a href="#about" class="navbar-item">About</a>
-          <a href="#skills" class="navbar-item">Skills</a>
-          <a href="#portfolio" class="navbar-item">Portfolio</a>
-          <a href="#contact" class="navbar-item">Contact</a>
-        </div>
-        <!-- Button to close the navbar menu. -->
-        <div class="absolute top-0 w-full py-4 grid grid-cols-12">
-          <div
-            id="navbar-close-button"
-            class="flex justify-center col-start-11 col-span-1 place-self-end h-full cursor-pointer"
-          >
-            <img src="assets/cross.svg" alt="Cross" />
-          </div>
-        </div>
-      </div>
-
-      <!-- The arrow navigation element. -->
-      <div class="fixed right-0 h-full grid grid-rows-3 place-items-center lg:mr-4 pointer-events-none">
-        <img
-          id="top-arrow-button"
-          src="assets/arrow-button.svg"
-          alt="Navigation Arrow Button"
-          class="arrow-button self-end row-start-1 rotate-180"
-        />
-        <div class="relative h-full flex justify-center row-start-2 row-span-1">
-          <div class="absolute grid grid-rows-5 h-full items-center">
-            <div class="arrow-text-item shown row-start-1">Home</div>
-            <div class="arrow-text-item row-start-2">About</div>
-            <div class="arrow-text-item row-start-3">Skills</div>
-            <div class="arrow-text-item row-start-4">Portfolio</div>
-            <div class="arrow-text-item row-start-5">Contact</div>
-          </div>
-          <img src="assets/arrow-body.svg" alt="Navigation Arrow Body" />
-        </div>
-        <img
-          id="bottom-arrow-button"
-          src="assets/arrow-button.svg"
-          alt="Navigation Arrow Button"
-          class="arrow-button shown w- self-start place-self-center row-start-3"
-        />
-      </div>
-
-      <!-- Home section. -->
-      <div id="home" class="page-item border-red-200 border-4 lg:gap-0 grid grid-cols-12 w-full min-h-screen pt-16">
+        <!-- Button to expand the navbar menu. -->
         <div
-          class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:pt-0 lg:col-span-4 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
+          id="navbar-expand-button"
+          class="flex lg:hidden justify-center w-full h-full cursor-pointer items-center flex-1"
         >
-          <div>
-            <div class="text-2xl">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
-            <div class="text-md">
-              A full-stack developer, interested in all things programming. Let&#39;s have a chat.
-            </div>
-            <div class="text-md text-red-500 mt-4">
-              This website is a work in progress. Check back soon for updates. :)
-            </div>
-          </div>
-          <div class="lg:hidden w-64 h-64 border-red-400 border-4"></div>
-        </div>
-        <div class="hidden lg:block col-start-7 col-span-5 w-96 h-96 border-red-400 border-4 place-self-center"></div>
-      </div>
-
-      <!-- About section. -->
-      <div id="about" class="page-item border-blue-200 border-4 w-full min-h-screen lg:h-screen">
-        <div class="gap-y-16 lg:gap-0 grid grid-cols-12 grid-rows-3 auto-rows-fr w-full h-full my-[52px] lg:my-0">
-          <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-end row-start-1 w-full">
-            <div class="border-blue-400 border-4 w-full h-16"></div>
-          </div>
-          <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-end w-full flex">
-            <div class="flex flex-col gap-y-4 justify-center">
-              <div class="text-xl font-bold">Education</div>
-              <div class="text-sm">
-                I&#39;m pursuing my bachelor&#39;s degree in Computer Science. Currently, in my final semester. Striving
-                to provide the best performance always, as is reflected on my university grades with a high distinction
-                weighted average.
-              </div>
-              <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
-            </div>
-          </div>
-          <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-center w-full">
-            <div class="border-blue-400 border-4 w-full h-16"></div>
-          </div>
-          <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-center row-span-1 w-full flex">
-            <div class="flex flex-col gap-y-4 justify-center">
-              <div class="text-xl font-bold">Experience</div>
-              <div class="text-sm">
-                I don&#39;t possess any remarkable work experience in the technology industry. However, I&#39;m very
-                passionate about my work, and excited to join the industry soon as I graduate.
-              </div>
-              <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
-            </div>
-          </div>
-          <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-start w-full">
-            <div class="border-blue-400 border-4 w-full h-16"></div>
-          </div>
-          <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-start row-span-1 w-full flex">
-            <div class="flex flex-col gap-y-4 justify-center">
-              <div class="text-xl font-bold">Life</div>
-              <div class="text-sm">
-                In my pastime, I like to watch movies (preferably comedy or thriller), documentaries, listen to music
-                (any language or genre). I also love cooking although I&#39;m not the best chef. I can be quite
-                introverted at times.
-              </div>
-              <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
-            </div>
-          </div>
+          <img class="ml-8" src="assets/expand.svg" alt="Expand" />
         </div>
       </div>
+    </header>
 
-      <!-- Skills section. -->
-      <div id="skills" class="page-item border-green-200 border-4 grid grid-cols-12 gap-6">
+    <!-- The navbar menu for mobile devices. -->
+    <header id="navbar-menu" class="fixed w-full h-full transition-all bg-white z-10">
+      <!-- The navbar menu items. -->
+      <nav class="flex flex-col justify-center items-center gap-4 w-full h-full">
+        <a href="#home" class="navbar-item active">Home</a>
+        <a href="#about" class="navbar-item">About</a>
+        <a href="#skills" class="navbar-item">Skills</a>
+        <a href="#portfolio" class="navbar-item">Portfolio</a>
+        <a href="#contact" class="navbar-item">Contact</a>
+      </nav>
+      <!-- Button to close the navbar menu. -->
+      <div class="absolute top-0 w-full py-4 grid grid-cols-12">
         <div
-          class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-start-2 col-span-10 gap-4 2xl:gap-16 xl:gap-12 lg:gap-8 justify-evenly"
+          id="navbar-close-button"
+          class="flex justify-center col-start-11 col-span-1 place-self-end h-full cursor-pointer"
         >
-          <!-- Frontend -->
-          <div class="skills-item">
-            <div class="skills-item-heading">Frontend</div>
-            <div class="skill-item-container">
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">React</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
-                  </div>
+          <img src="assets/cross.svg" alt="Cross" />
+        </div>
+      </div>
+    </header>
+
+    <!-- The arrow navigation element. -->
+    <div class="fixed right-0 h-full grid grid-rows-3 place-items-center lg:mr-4 pointer-events-none">
+      <img
+        id="top-arrow-button"
+        src="assets/arrow-button.svg"
+        alt="Navigation Arrow Button"
+        class="arrow-button self-end row-start-1 rotate-180"
+      />
+      <div class="relative h-full flex justify-center row-start-2 row-span-1">
+        <div class="absolute grid grid-rows-5 h-full items-center">
+          <div class="arrow-text-item shown row-start-1">Home</div>
+          <div class="arrow-text-item row-start-2">About</div>
+          <div class="arrow-text-item row-start-3">Skills</div>
+          <div class="arrow-text-item row-start-4">Portfolio</div>
+          <div class="arrow-text-item row-start-5">Contact</div>
+        </div>
+        <img src="assets/arrow-body.svg" alt="Navigation Arrow Body" />
+      </div>
+      <img
+        id="bottom-arrow-button"
+        src="assets/arrow-button.svg"
+        alt="Navigation Arrow Button"
+        class="arrow-button shown w- self-start place-self-center row-start-3"
+      />
+    </div>
+
+    <!-- Home section. -->
+    <div id="home" class="page-item min-h-screen border-red-200 border-4 lg:gap-0 grid grid-cols-12 w-full pt-16">
+      <div
+        class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:pt-0 lg:col-span-4 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
+      >
+        <div>
+          <div class="text-2xl">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
+          <div class="text-md">
+            A full-stack developer, interested in all things programming. Let&#39;s have a chat.
+          </div>
+          <div class="text-md text-red-500 mt-4">
+            This website is a work in progress. Check back soon for updates. :)
+          </div>
+        </div>
+        <div class="lg:hidden w-64 h-64 border-red-400 border-4"></div>
+      </div>
+      <div class="hidden lg:block col-start-7 col-span-5 w-96 h-96 border-red-400 border-4 place-self-center"></div>
+    </div>
+
+    <!-- About section. -->
+    <div id="about" class="page-item min-h-screen border-blue-200 border-4 w-full lg:h-screen">
+      <div class="gap-y-16 lg:gap-0 grid grid-cols-12 grid-rows-3 auto-rows-fr w-full h-full my-[52px] lg:my-0">
+        <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-end row-start-1 w-full">
+          <div class="border-blue-400 border-4 w-full h-16"></div>
+        </div>
+        <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-end w-full flex">
+          <div class="flex flex-col gap-y-4 justify-center">
+            <div class="text-xl font-bold">Education</div>
+            <div class="text-sm">
+              I&#39;m pursuing my bachelor&#39;s degree in Computer Science. Currently, in my final semester. Striving
+              to provide the best performance always, as is reflected on my university grades with a high distinction
+              weighted average.
+            </div>
+            <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+          </div>
+        </div>
+        <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-center w-full">
+          <div class="border-blue-400 border-4 w-full h-16"></div>
+        </div>
+        <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-center row-span-1 w-full flex">
+          <div class="flex flex-col gap-y-4 justify-center">
+            <div class="text-xl font-bold">Experience</div>
+            <div class="text-sm">
+              I don&#39;t possess any remarkable work experience in the technology industry. However, I&#39;m very
+              passionate about my work, and excited to join the industry soon as I graduate.
+            </div>
+            <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+          </div>
+        </div>
+        <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-start w-full">
+          <div class="border-blue-400 border-4 w-full h-16"></div>
+        </div>
+        <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-start row-span-1 w-full flex">
+          <div class="flex flex-col gap-y-4 justify-center">
+            <div class="text-xl font-bold">Life</div>
+            <div class="text-sm">
+              In my pastime, I like to watch movies (preferably comedy or thriller), documentaries, listen to music (any
+              language or genre). I also love cooking although I&#39;m not the best chef. I can be quite introverted at
+              times.
+            </div>
+            <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills section. -->
+    <div id="skills" class="page-item min-h-screen border-green-200 border-4 grid grid-cols-12 gap-6">
+      <div
+        class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-start-2 col-span-10 gap-4 2xl:gap-16 xl:gap-12 lg:gap-8 justify-evenly"
+      >
+        <!-- Frontend -->
+        <div class="skills-item">
+          <div class="skills-item-heading">Frontend</div>
+          <div class="skill-item-container">
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">React</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
                 </div>
-                <div id="react-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Next.js</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
-                  </div>
+              <div id="react-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Next.js</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" />
                 </div>
-                <div id="nextjs-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Material UI</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" />
-                  </div>
+              <div id="nextjs-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Material UI</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" />
                 </div>
-                <div id="materialui-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Chakra UI</div>
-                  <div id="chakraui-logo" class="skill-item-logo">
-                    <img src="assets/icons/chakraui.svg" />
-                  </div>
+              <div id="materialui-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Chakra UI</div>
+                <div id="chakraui-logo" class="skill-item-logo">
+                  <img src="assets/icons/chakraui.svg" />
                 </div>
-                <div id="chakraui-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Tailwindcss</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
-                  </div>
+              <div id="chakraui-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Tailwindcss</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
                 </div>
-                <div id="tailwindcss-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Bootstrap</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />
-                  </div>
+              <div id="tailwindcss-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Bootstrap</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />
                 </div>
-                <div id="bootstrap-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Flutter</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
-                  </div>
+              <div id="bootstrap-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Flutter</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" />
                 </div>
-                <div id="flutter-level" class="skill-item-level"></div>
               </div>
+              <div id="flutter-level" class="skill-item-level"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Backend -->
-          <div class="skills-item">
-            <div class="skills-item-heading">Backend</div>
-            <div class="skill-item-container">
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Spring</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
-                  </div>
+        <!-- Backend -->
+        <div class="skills-item">
+          <div class="skills-item-heading">Backend</div>
+          <div class="skill-item-container">
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Spring</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
                 </div>
-                <div id="spring-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Node.js</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
-                  </div>
+              <div id="spring-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Node.js</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
                 </div>
-                <div id="nodejs-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Express.js</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
-                  </div>
+              <div id="nodejs-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Express.js</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
                 </div>
-                <div id="expressjs-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Apollo GraphQL</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" />
-                  </div>
+              <div id="expressjs-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Apollo GraphQL</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" />
                 </div>
-                <div id="apollographql-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">ASP.Net Core</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" />
-                  </div>
+              <div id="apollographql-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">ASP.Net Core</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" />
                 </div>
-                <div id="aspnetcore-level" class="skill-item-level"></div>
               </div>
+              <div id="aspnetcore-level" class="skill-item-level"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Persistence -->
-          <div class="skills-item">
-            <div class="skills-item-heading">Persistence</div>
-            <div class="skill-item-container">
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">MySQL</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
-                  </div>
+        <!-- Persistence -->
+        <div class="skills-item">
+          <div class="skills-item-heading">Persistence</div>
+          <div class="skill-item-container">
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">MySQL</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />
                 </div>
-                <div id="mysql-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">PostgreSQL</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-                  </div>
+              <div id="mysql-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">PostgreSQL</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
                 </div>
-                <div id="postgresql-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">SQLite</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
-                  </div>
+              <div id="postgresql-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">SQLite</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" />
                 </div>
-                <div id="sqlite-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">MongoDB</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
-                  </div>
+              <div id="sqlite-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">MongoDB</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" />
                 </div>
-                <div id="mongodb-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Redis</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" />
-                  </div>
+              <div id="mongodb-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Redis</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" />
                 </div>
-                <div id="redis-level" class="skill-item-level"></div>
               </div>
+              <div id="redis-level" class="skill-item-level"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Cloud -->
-          <div class="skills-item">
-            <div class="skills-item-heading">Cloud</div>
-            <div class="skill-item-container">
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">RDS</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/rds.svg" />
-                  </div>
+        <!-- Cloud -->
+        <div class="skills-item">
+          <div class="skills-item-heading">Cloud</div>
+          <div class="skill-item-container">
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">RDS</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/rds.svg" />
                 </div>
-                <div id="rds-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">S3</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/s3.svg" />
-                  </div>
+              <div id="rds-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">S3</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/s3.svg" />
                 </div>
-                <div id="s3-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">CloudFront</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/cloudfront.svg" />
-                  </div>
+              <div id="s3-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">CloudFront</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/cloudfront.svg" />
                 </div>
-                <div id="cloudfront-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Lambda</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/lambda.svg" />
-                  </div>
+              <div id="cloudfront-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Lambda</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/lambda.svg" />
                 </div>
-                <div id="lambda-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">API Gateway</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/apigateway.svg" />
-                  </div>
+              <div id="lambda-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">API Gateway</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/apigateway.svg" />
                 </div>
-                <div id="apigateway-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">ECS (EC2/Fargate)</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/ecs.svg" />
-                  </div>
+              <div id="apigateway-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">ECS (EC2/Fargate)</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/ecs.svg" />
                 </div>
-                <div id="ecs-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Elastic Beanstalk</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/elasticbeanstalk.svg" />
-                  </div>
+              <div id="ecs-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Elastic Beanstalk</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/elasticbeanstalk.svg" />
                 </div>
-                <div id="elasticbeanstalk-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Azure SQL Server</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" />
-                  </div>
+              <div id="elasticbeanstalk-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Azure SQL Server</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" />
                 </div>
-                <div id="azuressqlserver-level" class="skill-item-level"></div>
               </div>
+              <div id="azuressqlserver-level" class="skill-item-level"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Tools -->
-          <div class="skills-item">
-            <div class="skills-item-heading">Tools</div>
-            <div class="skill-item-container">
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Docker (Compose/Hub)</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
-                  </div>
+        <!-- Tools -->
+        <div class="skills-item">
+          <div class="skills-item-heading">Tools</div>
+          <div class="skill-item-container">
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Docker (Compose/Hub)</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
                 </div>
-                <div id="docker-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">CircleCI</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/circleci/circleci-plain.svg" />
-                  </div>
+              <div id="docker-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">CircleCI</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/circleci/circleci-plain.svg" />
                 </div>
-                <div id="circleci-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">GitHub Actions</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-                  </div>
+              <div id="circleci-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">GitHub Actions</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
                 </div>
-                <div id="githubactions-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">JIRA</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" />
-                  </div>
+              <div id="githubactions-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">JIRA</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" />
                 </div>
-                <div id="jira-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Trello</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" />
-                  </div>
+              <div id="jira-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Trello</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" />
                 </div>
-                <div id="jira-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Slack</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" />
-                  </div>
+              <div id="jira-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Slack</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" />
                 </div>
-                <div id="slack-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">JetBrains IDEs</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg" />
-                  </div>
+              <div id="slack-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">JetBrains IDEs</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jetbrains/jetbrains-original.svg" />
                 </div>
-                <div id="jetbrainsides-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Visual Studio Code</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
-                  </div>
+              <div id="jetbrainsides-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Visual Studio Code</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" />
                 </div>
-                <div id="visualstudiocode-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Figma</div>
-                  <div class="skill-item-logo">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
-                  </div>
+              <div id="visualstudiocode-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Figma</div>
+                <div class="skill-item-logo">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" />
                 </div>
-                <div id="figma-level" class="skill-item-level"></div>
               </div>
-              <div class="skill-item">
-                <div class="skill-item-head">
-                  <div class="skill-item-heading">Postman</div>
-                  <div class="skill-item-logo">
-                    <img src="assets/icons/postman.svg" />
-                  </div>
+              <div id="figma-level" class="skill-item-level"></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-item-head">
+                <div class="skill-item-heading">Postman</div>
+                <div class="skill-item-logo">
+                  <img src="assets/icons/postman.svg" />
                 </div>
-                <div id="postman-level" class="skill-item-level"></div>
               </div>
+              <div id="postman-level" class="skill-item-level"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Portfolio section. -->
-      <div id="portfolio" class="page-item border-purple-200 border-4 grid grid-cols-12">
-        <div class="col-start-2 col-span-10 grid grid-cols-2 gap-8">
-          <div class="portfolio-item-container">
-            <div class="portfolio-item">
-              <img class="portfolio-item-image" src="assets/portfolio/home.png" />
-              <div class="portfolio-item-body">
-                <div class="portfolio-item-heading">Australian Space Database</div>
-                <div class="portfolio-item-tags">
-                  <div class="portfolio-item-tag">Spring</div>
-                  <div class="portfolio-item-tag">React</div>
-                  <div class="portfolio-item-tag">Lucene</div>
-                  <div class="portfolio-item-tag">Hibernate Search</div>
-                </div>
-                <div class="portfolio-item-description">
-                  A registry for experiments conducted in microgravity environments by Australian Scientists. Modelled
-                  on the Erasmus Experiment Archive under the supervision of NASA Human Research Program member and RMIT
-                  Senior Lecturer Dr Gail Iles. Led a team of 5 for this Capstone project and achieved outstanding
-                  client satisfaction.
-                </div>
-              </div>
-            </div>
+    <!-- Portfolio section. -->
+    <div id="portfolio" class="page-item min-h-screen border-purple-200 border-4 grid grid-cols-12">
+      <div class="col-start-2 col-span-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Australian Space Database</span>
+            <a href="https://github.com/cosc2408-s1-2022/microgravity-database" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
           </div>
-          <div class="portfolio-item"></div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">Spring</div>
+            <div class="portfolio-item-tag">React</div>
+            <div class="portfolio-item-tag">Lucene</div>
+            <div class="portfolio-item-tag">Hibernate Search</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/microgravity-database.gif" />
+          <div class="portfolio-item-description">
+            A web application focused on the production and maintenance of a database for storing information about
+            microgravity experiments conducted in Australia or by Australian groups using international facilities.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Bookeroo</span>
+            <a href="https://github.com/SEPT-2021/bookeroo-app" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">Spring</div>
+            <div class="portfolio-item-tag">React</div>
+            <div class="portfolio-item-tag">PayPal API</div>
+            <div class="portfolio-item-tag">RDS</div>
+            <div class="portfolio-item-tag">S3</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/bookeroo.gif" />
+          <div class="portfolio-item-description">
+            An online marketplace for buyers and sellers to trade books and accept payment in a widely popular medium as
+            PayPal.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>CC</span>
+            <a href="https://github.com/shihabsami/cc-app" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">Spring</div>
+            <div class="portfolio-item-tag">React</div>
+            <div class="portfolio-item-tag">RDS</div>
+            <div class="portfolio-item-tag">S3</div>
+            <div class="portfolio-item-tag">Cloudfront</div>
+            <div class="portfolio-item-tag">Lambda</div>
+            <div class="portfolio-item-tag">API Gateway</div>
+            <div class="portfolio-item-tag">ECS</div>
+            <div class="portfolio-item-tag">EB</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/cc.gif" />
+          <div class="portfolio-item-description">
+            A full stack social media web app to demonstrate cloud technologies. Uses various cloud solutions from AWS
+            such as an RDS database, multiple S3 buckets with Lambda event handlers, CloudFront, API Gateway, EB, ECS as
+            well as multiple load balancers, all within a private VPC.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Cardgame</span>
+            <a href="https://github.com/shihabsami/cardgame-gui" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">Java</div>
+            <div class="portfolio-item-tag">Java AWT/Swing</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/cardgame.gif" />
+          <div class="portfolio-item-description">
+            A blackjack like card game made using Java AWT and Swing. This is the GUI version of the game. A more
+            minimalistic console version is present <a href="https://github.com/shihabsami/cardgame-console">here</a>.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Asteroid Arena 2D</span>
+            <a href="https://github.com/shihabsami/asteroid-arena-2d" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">C++</div>
+            <div class="portfolio-item-tag">OpenGL</div>
+            <div class="portfolio-item-tag">CMake</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/asteroid-arena-2d.gif" />
+          <div class="portfolio-item-description">
+            A 2D game engine created from scratch using the classic OpenGL fixed-function pipeline in order to develop a
+            space shooter game.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Asteroid Arena 3D</span>
+            <a href="https://github.com/shihabsami/asteroid-arena-3d" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">C++</div>
+            <div class="portfolio-item-tag">OpenGL</div>
+            <div class="portfolio-item-tag">CMake</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/asteroid-arena-3d.gif" />
+          <div class="portfolio-item-description">
+            A 3D rendition of the 2D game again made using the classic OpenGL fixed-function pipeline with additional
+            features such as textures, lighting and billboarded particles. Also replaces the Euler-based rotation system
+            with Quaternion-based algorithms.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Menger Sponge</span>
+            <a href="https://github.com/shihabsami/menger-sponge" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">C++</div>
+            <div class="portfolio-item-tag">OpenGL</div>
+            <div class="portfolio-item-tag">GLSL</div>
+            <div class="portfolio-item-tag">CMake</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/menger-sponge.gif" />
+          <div class="portfolio-item-description">
+            Recursively drawn Menger Sponge with infinite subdivisions. In total 6 scenes, each demonstrating a certain
+            phenomenon e.g., rendering on the CPU vs GPU, instancing, animation etc.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Pinball</span>
+            <a href="https://github.com/shihabsami/pinball" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">C++</div>
+            <div class="portfolio-item-tag">OpenGL</div>
+            <div class="portfolio-item-tag">GLSL</div>
+            <div class="portfolio-item-tag">CMake</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/pinball.gif" />
+          <div class="portfolio-item-description">
+            A simple Pinball game demonstrating various graphics techniques e.g., Blinn-Phong model,
+            reflection/refraction mapping, bloom, [omni]directional shadows etc as well as a physics engine using
+            spatial data structures (Octree).
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Qwirkle</span>
+            <a href="https://github.com/shihabsami/qwirkle-extended" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">C++</div>
+            <div class="portfolio-item-tag">Makefile</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/qwirkle.gif" />
+          <div class="portfolio-item-description">
+            A console implementation of the classic Qwirkle game. Programmed in C++ harnessing modern features such as
+            smart pointers, lambdas etc. Featuring extensions such as an AI player, configuration menu, multi-player
+            game modes etc. The minimal version without the extensions can be found
+            <a href="https://github.com/shihabsami/qwirkle">here</a>.
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-item-head">
+            <span>Simple File System</span>
+            <a href="https://github.com/shihabsami/simple-file-system" target="_blank">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="portfolio-item-tags">
+            <div class="portfolio-item-tag">C++</div>
+            <div class="portfolio-item-tag">Makefile</div>
+            <div class="portfolio-item-tag">Linux</div>
+          </div>
+          <img class="portfolio-item-image" src="assets/portfolio/simple-file-system.png" />
+          <div class="portfolio-item-description">
+            A simple linux-based file system programmed in modern C++. Integrates with the classic Midnight Commander
+            program.
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- Contact section. -->
-      <div id="contact" class="page-item border-gray-200 border-4 flex w-full justify-center gap-8">
-        <a class="contact-item" href="https://www.linkedin.com/in/shihabsami" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" />
-        </a>
-        <a class="contact-item" href="https://github.com/shihabsami" target="_blank">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-        </a>
-        <a class="contact-item" href="https://discordapp.com/users/684202409572171777" target="_blank">
-          <img src="assets/icons/discord.svg" />
-        </a>
-        <a class="contact-item" href="https://twitter.com/_shihabsami" target="_blank">
-          <img src="assets/icons/twitter.svg" />
-        </a>
-        <a class="contact-item" href="mailto:shihabsami14120@gmail.com">
-          <img src="assets/icons/gmail.svg" />
-        </a>
-      </div>
+    <!-- Contact section. -->
+    <div id="contact" class="page-item border-gray-200 border-4 flex w-full justify-center gap-8">
+      <a class="contact-item" href="https://www.linkedin.com/in/shihabsami" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" />
+      </a>
+      <a class="contact-item" href="https://github.com/shihabsami" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+      </a>
+      <a class="contact-item" href="https://discordapp.com/users/684202409572171777" target="_blank">
+        <img src="assets/icons/discord.svg" />
+      </a>
+      <a class="contact-item" href="https://twitter.com/_shihabsami" target="_blank">
+        <img src="assets/icons/twitter.svg" />
+      </a>
+      <a class="contact-item" href="mailto:shihabsami14120@gmail.com">
+        <img src="assets/icons/gmail.svg" />
+      </a>
     </div>
 
     <!-- Footer. -->
