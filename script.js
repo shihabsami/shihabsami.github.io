@@ -15,11 +15,9 @@ window.addEventListener("DOMContentLoaded", function () {
   const pageItemElements = document.querySelectorAll(".page-item");
   pageItemElements.forEach((element) => {
     const pageLinks = document.querySelectorAll(`[href="#${element.id}"]`);
-    console.log(pageLinks);
     pageLinks.forEach((link) => {
       link.onclick = (e) => {
         e.preventDefault();
-        console.log("clicked");
         element.scrollIntoView({ behavior: "smooth", offsetTop: 0 });
       };
     });
