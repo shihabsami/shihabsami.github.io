@@ -12,6 +12,19 @@ window.addEventListener("DOMContentLoaded", function () {
   // Add the theme switch event listener.
   themeSwitch.addEventListener("change", switchTheme, false);
 
+  const pageItemElements = document.querySelectorAll(".page-item");
+  pageItemElements.forEach((element) => {
+    const pageLinks = document.querySelectorAll(`[href="#${element.id}"]`);
+    console.log(pageLinks);
+    pageLinks.forEach((link) => {
+      link.onclick = (e) => {
+        e.preventDefault();
+        console.log("clicked");
+        element.scrollIntoView({ behavior: "smooth", offsetTop: 0 });
+      };
+    });
+  });
+
   // Add animation classes to skill and portfolio items.
   const skillAndPortfolioItems = document.querySelectorAll(".skill-item, .portfolio-item");
   skillAndPortfolioItems.forEach((item) => {
