@@ -1,6 +1,6 @@
 window.onload = function () {
   // Get the theme switch input button.
-  const themeSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  const themeSwitch = document.querySelector('#theme-switch label input[type="checkbox"]');
 
   // The event handler for the theme switch.
   function switchTheme(e) {
@@ -40,7 +40,7 @@ window.onload = function () {
     }
 
     // All the navbar items i.e., links on the navbar.
-    let navbarItems = document.getElementsByClassName("navbar-item");
+    let navbarItems = document.getElementsByClassName("nav-item");
 
     // Set the active navbar item.
     for (let i = 0; i < navbarItems.length; i++) {
@@ -62,10 +62,10 @@ window.onload = function () {
     const topArrowButton = document.getElementById("top-arrow-button");
     // The bottom arrow button of the navigation arrow.
     const bottomArrowButton = document.getElementById("bottom-arrow-button");
-    if (scrollPosition === 0) {
+    if (closestElementIndex === 0) {
       topArrowButton.classList.remove("shown");
       bottomArrowButton.classList.add("shown");
-    } else if (document.body.scrollHeight - document.body.scrollTop === document.body.clientHeight) {
+    } else if (closestElementIndex === pageItemElements.length - 1) {
       topArrowButton.classList.add("shown");
       bottomArrowButton.classList.remove("shown");
     } else {
@@ -90,12 +90,12 @@ window.onload = function () {
   window.addEventListener("scroll", handleScroll);
 
   function toggleNavbarMenu() {
-    document.getElementById("navbar-menu").classList.toggle("shown");
+    document.getElementById("mobile-menu").classList.toggle("shown");
   }
 
-  document.getElementById("navbar-expand-button").addEventListener("click", toggleNavbarMenu);
-  document.getElementById("navbar-close-button").addEventListener("click", toggleNavbarMenu);
-  const navbarMenuItems = document.querySelectorAll("#navbar-menu > div > .navbar-item");
+  document.getElementById("nav-expand").addEventListener("click", toggleNavbarMenu);
+  document.getElementById("nav-collapse").addEventListener("click", toggleNavbarMenu);
+  const navbarMenuItems = document.querySelectorAll("#mobile-menu .nav-item");
   for (let i = 0; i < navbarMenuItems.length; i++) {
     navbarMenuItems[i].addEventListener("click", toggleNavbarMenu);
   }

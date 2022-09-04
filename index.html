@@ -11,77 +11,96 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="tailwind.css" />
     <script src="https://kit.fontawesome.com/f57a52982f.js" crossorigin="anonymous"></script>
+    <script src="svg-inject.min.js"></script>
     <script src="script.js" async></script>
     <title>Shihab Sami</title>
   </head>
   <body class="relative">
-    <!-- Navbar for browser. -->
-    <header class="fixed grid grid-cols-12 py-3 w-full h-16 bg-white items-center z-10">
+    <!-- Header. -->
+    <header class="fixed grid grid-cols-12 py-3 w-full h-20 bg-white dark:bg-neutral-900 items-center z-10">
       <!-- Personal logo. -->
-      <div class="col-start-2 col-span-1 font-bold text-xl text-black">Shihab Sami</div>
-      <!-- Navbar items. -->
-      <nav id="navbar-container" class="hidden lg:flex justify-center gap-8 col-span-8">
-        <a href="#home" class="navbar-item active">Home</a>
-        <a href="#about" class="navbar-item">About</a>
-        <a href="#skills" class="navbar-item">Skills</a>
-        <a href="#portfolio" class="navbar-item">Portfolio</a>
-        <a href="#contact" class="navbar-item">Contact</a>
+      <a href="#" class="col-start-2 font-bold text-xl text-black dark:text-white whitespace-nowrap">Shihab Sami</a>
+      <!-- Nav items. -->
+      <nav class="hidden lg:flex justify-center gap-8 col-span-8">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#portfolio" class="nav-item">Portfolio</a>
+        <a href="#contact" class="nav-item">Contact</a>
       </nav>
-      <div class="col-end-12 flex items-center justify-self-end">
+      <!-- Header controls. -->
+      <div class="col-end-12 col-span-2 lg:col-span-1 flex items-center justify-self-end gap-6">
         <!-- Switch for theme. -->
-        <div class="h-full flex items-center">
-          <label class="theme-switch relative inline-block w-11 h-[22px]">
+        <div id="theme-switch" class="flex items-center h-full">
+          <label class="relative inline-block w-12 h-6">
             <input type="checkbox" class="hidden" />
             <span
-              class="slider flex justify-evenly gap-2 p-1 transition-transform ease-in-out cursor-pointer bg-black absolute top-0 left-0 bottom-0 right-0"
+              class="flex justify-evenly gap-2 p-1 absolute top-0 left-0 bottom-0 right-0 rounded-full transition-transform ease-in-out cursor-pointer"
             >
-              <img src="assets/moon.svg" alt="Moon" id="moon" class="transition-transform ease-in-out" />
-              <img src="assets//sun.svg" alt="Sun" id="sun" class="transition-transform ease-in-out" />
+              <img
+                src="assets/moon.svg"
+                alt="Moon"
+                id="moon"
+                class="transition-transform ease-in-out"
+                onload="SVGInject(this)"
+              />
+              <img
+                src="assets//sun.svg"
+                alt="Sun"
+                id="sun"
+                class="transition-transform ease-in-out"
+                onload="SVGInject(this)"
+              />
             </span>
           </label>
         </div>
         <!-- Button to expand the navbar menu. -->
-        <div
-          id="navbar-expand-button"
-          class="flex lg:hidden justify-center w-full h-full cursor-pointer items-center flex-1"
-        >
-          <img class="ml-8" src="assets/expand.svg" alt="Expand" />
+        <div id="nav-expand" class="lg:hidden w-6 h-full cursor-pointer">
+          <img class="object-cover" src="assets/expand.svg" alt="Expand" onload="SVGInject(this)" />
         </div>
       </div>
     </header>
 
-    <!-- The navbar menu for mobile devices. -->
-    <header id="navbar-menu" class="fixed w-full h-full transition-all bg-white z-10">
-      <!-- The navbar menu items. -->
+    <!-- Menu for mobile devices. -->
+    <div
+      id="mobile-menu"
+      class="fixed w-full h-full transition-all bg-white dark:bg-neutral-900 z-10 -translate-y-full opacity-0"
+    >
+      <!-- Nav items. -->
       <nav class="flex flex-col justify-center items-center gap-4 w-full h-full">
-        <a href="#home" class="navbar-item active">Home</a>
-        <a href="#about" class="navbar-item">About</a>
-        <a href="#skills" class="navbar-item">Skills</a>
-        <a href="#portfolio" class="navbar-item">Portfolio</a>
-        <a href="#contact" class="navbar-item">Contact</a>
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#portfolio" class="nav-item">Portfolio</a>
+        <a href="#contact" class="nav-item">Contact</a>
       </nav>
       <!-- Button to close the navbar menu. -->
-      <div class="absolute top-0 w-full py-4 grid grid-cols-12">
+      <div class="absolute top-0 w-full h-20 py-4 grid grid-cols-12">
         <div
-          id="navbar-close-button"
-          class="flex justify-center col-start-11 col-span-1 place-self-end h-full cursor-pointer"
+          id="nav-collapse"
+          class="flex justify-center col-start-11 col-span-1 place-self-end items-center w-6 h-full cursor-pointer"
         >
-          <img src="assets/cross.svg" alt="Cross" />
+          <img class="object-cover" src="assets/cross.svg" alt="Close" onload="SVGInject(this)" />
         </div>
       </div>
-    </header>
+    </div>
 
     <!-- The arrow navigation element. -->
-    <div class="fixed right-0 h-full grid grid-rows-3 place-items-center lg:mr-4 pointer-events-none">
+    <div
+      id="nav-arrow"
+      class="fixed right-0 h-full hidden sm:grid grid-rows-3 place-items-center lg:mr-4 pointer-events-none"
+    >
       <img
         id="top-arrow-button"
         src="assets/arrow-button.svg"
         alt="Navigation Arrow Button"
-        class="arrow-button self-end row-start-1 rotate-180"
+        class="arrow-button self-end row-start-1 rotate-180 w-10 h-min"
+        onload="SVGInject(this)"
       />
-      <div class="relative h-full flex justify-center row-start-2 row-span-1">
+      <div class="relative w-[1px] h-full bg-black dark:bg-white flex justify-center row-start-2 row-span-1">
         <div class="absolute grid grid-rows-5 h-full items-center">
           <div class="arrow-text-item shown row-start-1">Home</div>
           <div class="arrow-text-item row-start-2">About</div>
@@ -89,88 +108,116 @@
           <div class="arrow-text-item row-start-4">Portfolio</div>
           <div class="arrow-text-item row-start-5">Contact</div>
         </div>
-        <img src="assets/arrow-body.svg" alt="Navigation Arrow Body" />
+        <!-- <img id="arrow-body" src="assets/arrow-body.svg" alt="Navigation Arrow Body" onload="SVGInject(this)" /> -->
       </div>
       <img
         id="bottom-arrow-button"
         src="assets/arrow-button.svg"
         alt="Navigation Arrow Button"
-        class="arrow-button shown w- self-start place-self-center row-start-3"
+        class="arrow-button shown self-start place-self-center row-start-3 w-10 h-min"
+        onload="SVGInject(this)"
       />
     </div>
 
     <!-- Home section. -->
-    <div id="home" class="page-item min-h-screen border-red-200 border-4 lg:gap-0 grid grid-cols-12 w-full pt-16">
+    <div id="home" class="page-item min-h-screen grid grid-cols-12">
       <div
-        class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:pt-0 lg:col-span-4 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
+        class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:pt-0 lg:col-span-6 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
       >
-        <div>
-          <div class="text-2xl">Howdy! I&#39;m <span class="font-bold">Shihab</span>.</div>
-          <div class="text-md">
-            A full-stack developer, interested in all things programming. Let&#39;s have a chat.
+        <div class="flex flex-col gap-y-6">
+          <div class="text-4xl xl:text-5xl 2xl:text-7xl dark:text-white">
+            Howdy! I&#39;m <span class="font-bold font-mono text-indigo-500">Shihab</span>.
           </div>
-          <div class="text-md text-red-500 mt-4">
-            This website is a work in progress. Check back soon for updates. :)
+          <div class="text-lg xl:text-xl 2xl:text-2xl dark:text-white">
+            An aspiring full-stack developer, interested in all things technology. And you are? Ah, nice to meet you
+            <span class="font-mono">{visitor?.name}</span>.
           </div>
+          <a
+            href="#contact"
+            class="cursor-pointer text-md font-bold w-max px-4 py-2 rounded-full bg-gray-200 hover:bg-indigo-500 text-black hover:text-white transition-colors"
+          >
+            Get in touch
+            <i class="fa-solid fa-arrow-right ml-1"></i>
+          </a>
+          <div class="text-md text-red-500">This website is a work in progress. Check back soon for updates. :)</div>
         </div>
-        <div class="lg:hidden w-64 h-64 border-red-400 border-4"></div>
+        <div class="lg:hidden w-full h-full flex justify-center items-center">
+          <div class="home-image"></div>
+        </div>
       </div>
-      <div class="hidden lg:block col-start-7 col-span-5 w-96 h-96 border-red-400 border-4 place-self-center"></div>
+      <div class="hidden lg:flex col-start-8 col-span-3 w-full h-full justify-end items-center">
+        <div class="home-image"></div>
+      </div>
     </div>
 
     <!-- About section. -->
-    <div id="about" class="page-item min-h-screen border-blue-200 border-4 w-full lg:h-screen">
-      <div class="gap-y-16 lg:gap-0 grid grid-cols-12 grid-rows-3 auto-rows-fr w-full h-full my-[52px] lg:my-0">
-        <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-end row-start-1 w-full">
-          <div class="border-blue-400 border-4 w-full h-16"></div>
-        </div>
-        <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-end w-full flex">
-          <div class="flex flex-col gap-y-4 justify-center">
-            <div class="text-xl font-bold">Education</div>
-            <div class="text-sm">
-              I&#39;m pursuing my bachelor&#39;s degree in Computer Science. Currently, in my final semester. Striving
-              to provide the best performance always, as is reflected on my university grades with a high distinction
-              weighted average.
-            </div>
-            <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+    <div
+      id="about"
+      class="page-item min-h-screen lg:h-screen dark:text-white gap-y-8 lg:gap-y-0 grid grid-cols-12 grid-rows-[repeat(auto-fit, minmax(0, 1fr))] w-full h-full lg:my-0"
+    >
+      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-end row-start-1 w-full h-64 p-2">
+        <div class="about-image"></div>
+      </div>
+      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-end w-full flex">
+        <div class="flex flex-col gap-y-4 justify-center">
+          <div class="about-item-title">Education</div>
+          <div class="about-item-text">
+            I&#39;m pursuing my bachelor&#39;s degree in Computer Science at RMIT University, Australia. Currently, in
+            my final semester after three long years. Reason to choose Computer Science? I have always been fascinated
+            by technology. My very first computer at the age of 8 opened me up to a whole new world of possibilities.
+            Although I was primarily gaming like all kids my age, around 13, I found myself more interested in the
+            technical side of things, specially behind the creation of games. I started learning 3d modelling and
+            animation, but could only go so far in creating a game of own due to always looking away when it came to
+            writing textual gibberish that gave objects life. Years later, the gibberish is what I spend most my time
+            writing. So yeah, I am always curious to learn what makes things tick and all the more excited to be able to
+            create things myself.
+          </div>
+          <div class="lg:hidden w-full h-64">
+            <div class="about-image"></div>
           </div>
         </div>
-        <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-center w-full">
-          <div class="border-blue-400 border-4 w-full h-16"></div>
-        </div>
-        <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-center row-span-1 w-full flex">
-          <div class="flex flex-col gap-y-4 justify-center">
-            <div class="text-xl font-bold">Experience</div>
-            <div class="text-sm">
-              I don&#39;t possess any remarkable work experience in the technology industry. However, I&#39;m very
-              passionate about my work, and excited to join the industry soon as I graduate.
-            </div>
-            <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+      </div>
+      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-center w-full h-64 p-2">
+        <div class="about-image"></div>
+      </div>
+      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-center row-span-1 w-full flex">
+        <div class="flex flex-col gap-y-4 justify-center">
+          <div class="about-item-title">Experience</div>
+          <div class="about-item-text">
+            I don&#39;t possess any remarkable work experience in the technology industry. However, I&#39;m very
+            passionate about my work, and excited to join the industry soon as I graduate. Like the Japanese would say,
+            I am a blank canvas, awaiting to be painted in company colours. I&#39;m always looking for opportunities to
+            learn and grow, and I&#39;m confident that I can be a valuable asset to any team.
+          </div>
+          <div class="lg:hidden w-full h-64">
+            <div class="about-image"></div>
           </div>
         </div>
-        <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-start w-full">
-          <div class="border-blue-400 border-4 w-full h-16"></div>
-        </div>
-        <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-start row-span-1 w-full flex">
-          <div class="flex flex-col gap-y-4 justify-center">
-            <div class="text-xl font-bold">Life</div>
-            <div class="text-sm">
-              In my pastime, I like to watch movies (preferably comedy or thriller), documentaries, listen to music (any
-              language or genre). I also love cooking although I&#39;m not the best chef. I can be quite introverted at
-              times.
-            </div>
-            <div class="lg:hidden border-red-400 border-4 w-full h-16"></div>
+      </div>
+      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-start w-full h-64 p-2">
+        <div class="about-image"></div>
+      </div>
+      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-start row-span-1 w-full flex">
+        <div class="flex flex-col gap-y-4 justify-center">
+          <div class="about-item-title">Life</div>
+          <div class="about-item-text">
+            In my pastime, I like to watch movies (preferably comedy or thriller), documentaries, listen to music (any
+            language or genre). I also love cooking although I&#39;m not the best chef. I can be quite introverted at
+            times.
+          </div>
+          <div class="lg:hidden w-full h-64">
+            <div class="about-image"></div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Skills section. -->
-    <div id="skills" class="page-item min-h-screen border-green-200 border-4 grid grid-cols-12 gap-6">
+    <div id="skills" class="page-item min-h-screen grid grid-cols-12 gap-6">
       <div
         class="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 col-start-2 col-span-10 gap-4 2xl:gap-16 xl:gap-12 lg:gap-8 justify-evenly"
       >
-        <!-- Frontend -->
+        <!-- Frontend. -->
         <div class="skills-item">
           <div class="skills-item-heading">Frontend</div>
           <div class="skill-item-container">
@@ -240,7 +287,7 @@
           </div>
         </div>
 
-        <!-- Backend -->
+        <!-- Backend. -->
         <div class="skills-item">
           <div class="skills-item-heading">Backend</div>
           <div class="skill-item-container">
@@ -292,7 +339,7 @@
           </div>
         </div>
 
-        <!-- Persistence -->
+        <!-- Persistence. -->
         <div class="skills-item">
           <div class="skills-item-heading">Persistence</div>
           <div class="skill-item-container">
@@ -344,7 +391,7 @@
           </div>
         </div>
 
-        <!-- Cloud -->
+        <!-- Cloud. -->
         <div class="skills-item">
           <div class="skills-item-heading">Cloud</div>
           <div class="skill-item-container">
@@ -423,7 +470,7 @@
           </div>
         </div>
 
-        <!-- Tools -->
+        <!-- Tools. -->
         <div class="skills-item">
           <div class="skills-item-heading">Tools</div>
           <div class="skill-item-container">
@@ -523,8 +570,8 @@
     </div>
 
     <!-- Portfolio section. -->
-    <div id="portfolio" class="page-item min-h-screen border-purple-200 border-4 grid grid-cols-12">
-      <div class="col-start-2 col-span-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+    <div id="portfolio" class="page-item min-h-screen grid grid-cols-12">
+      <div class="col-start-2 col-span-10 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
         <div class="portfolio-item">
           <div class="portfolio-item-head">
             <span>Australian Space Database</span>
@@ -673,7 +720,7 @@
           <div class="portfolio-item-head">
             <span>Pinball</span>
             <a href="https://github.com/shihabsami/pinball" target="_blank">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <i class="fa-solid fa-arrow-up-right-from-square hover:fill-indigo-500"></i>
             </a>
           </div>
           <div class="portfolio-item-tags">
@@ -732,26 +779,32 @@
     </div>
 
     <!-- Contact section. -->
-    <div id="contact" class="page-item border-gray-200 border-4 flex w-full justify-center gap-8">
+    <div id="contact" class="page-item flex w-full justify-center gap-8">
       <a class="contact-item" href="https://www.linkedin.com/in/shihabsami" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" />
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg"
+          onload="SVGInject(this)"
+        />
       </a>
       <a class="contact-item" href="https://github.com/shihabsami" target="_blank">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          onload="SVGInject(this)"
+        />
       </a>
       <a class="contact-item" href="https://discordapp.com/users/684202409572171777" target="_blank">
-        <img src="assets/icons/discord.svg" />
+        <img src="assets/icons/discord.svg" onload="SVGInject(this)" />
       </a>
       <a class="contact-item" href="https://twitter.com/_shihabsami" target="_blank">
-        <img src="assets/icons/twitter.svg" />
+        <img src="assets/icons/twitter.svg" onload="SVGInject(this)" />
       </a>
       <a class="contact-item" href="mailto:shihabsami14120@gmail.com">
-        <img src="assets/icons/gmail.svg" />
+        <img src="assets/icons/gmail.svg" onload="SVGInject(this)" />
       </a>
     </div>
 
     <!-- Footer. -->
-    <footer class="w-full flex flex-col gap-2 my-2 items-center">
+    <footer class="w-full flex flex-col gap-2 py-4 items-center dark:bg-neutral-900 dark:text-white">
       <p class="text-sm flex items-center">
         <span class="mr-2 font-sans">&copy;</span>
         <script>
