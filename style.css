@@ -132,6 +132,21 @@ header::after {
   @apply translate-y-0 opacity-100;
 }
 
+.animate {
+  animation: animate 0.5s linear;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .page-item {
   @apply pt-20 w-full dark:bg-neutral-900;
 }
@@ -212,7 +227,7 @@ header::after {
 }
 
 .portfolio-item-tag {
-  @apply text-xs bg-gray-200 dark:bg-neutral-700 text-center px-1.5 py-0.5 ;
+  @apply text-xs bg-gray-200 dark:bg-neutral-700 text-center px-1.5 py-0.5;
 }
 
 .portfolio-item-head {

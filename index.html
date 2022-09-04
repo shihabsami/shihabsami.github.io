@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="tailwind.css" />
     <script src="https://kit.fontawesome.com/f57a52982f.js" crossorigin="anonymous"></script>
     <script src="svg-inject.min.js"></script>
-    <script src="script.js" async></script>
+    <script src="script.js"></script>
     <title>Shihab Sami</title>
   </head>
   <body class="relative">
@@ -124,7 +124,7 @@
       <div
         class="gap-y-4 col-start-2 lg:col-start-2 col-span-10 lg:pt-0 lg:col-span-6 place-self-center lg:place-self-auto mb-4 lg:mb-0 mr-0 lg:mr-8 flex flex-col justify-center items-center"
       >
-        <div class="flex flex-col gap-y-6">
+        <div class="flex flex-col gap-y-6 animate-once">
           <div class="text-4xl xl:text-5xl 2xl:text-7xl dark:text-white">
             Howdy! I&#39;m <span class="font-bold font-mono text-indigo-500">Shihab</span>.
           </div>
@@ -141,11 +141,11 @@
           </a>
           <div class="text-md text-red-500">This website is a work in progress. Check back soon for updates. :)</div>
         </div>
-        <div class="lg:hidden w-full h-full flex justify-center items-center">
+        <div class="lg:hidden w-full h-full flex justify-center items-center animate-once">
           <div class="home-image"></div>
         </div>
       </div>
-      <div class="hidden lg:flex col-start-8 col-span-3 w-full h-full justify-end items-center">
+      <div class="hidden lg:flex col-start-8 col-span-3 w-full h-full justify-end items-center animate-once">
         <div class="home-image"></div>
       </div>
     </div>
@@ -153,12 +153,12 @@
     <!-- About section. -->
     <div
       id="about"
-      class="page-item min-h-screen lg:h-screen dark:text-white gap-y-8 lg:gap-y-0 grid grid-cols-12 grid-rows-[repeat(auto-fit, minmax(0, 1fr))] w-full h-full lg:my-0"
+      class="page-item min-h-screen lg:h-screen dark:text-white gap-y-8 lg:gap-y-0 grid grid-cols-12 grid-rows-[repeat(auto-fit, minmax(0, 1fr))] w-full h-full lg:my-0 place-content-center"
     >
-      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-end row-start-1 w-full h-64 p-2">
+      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 row-start-1 w-full h-64 p-2 animate-once">
         <div class="about-image"></div>
       </div>
-      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-end w-full flex">
+      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 w-full flex animate-once">
         <div class="flex flex-col gap-y-4 justify-center">
           <div class="about-item-title">Education</div>
           <div class="about-item-text">
@@ -177,33 +177,37 @@
           </div>
         </div>
       </div>
-      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-center w-full h-64 p-2">
+      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 w-full h-64 p-2 animate-once">
         <div class="about-image"></div>
       </div>
-      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-center row-span-1 w-full flex">
+      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 row-span-1 w-full flex animate-once">
         <div class="flex flex-col gap-y-4 justify-center">
           <div class="about-item-title">Experience</div>
           <div class="about-item-text">
-            I don&#39;t possess any remarkable work experience in the technology industry. However, I&#39;m very
-            passionate about my work, and excited to join the industry soon as I graduate. Like the Japanese would say,
-            I am a blank canvas, awaiting to be painted in company colours. I&#39;m always looking for opportunities to
-            learn and grow, and I&#39;m confident that I can be a valuable asset to any team.
+            I don&#39;t possess any work experience in the technology industry. However, I&#39;m very passionate about
+            my work, and excited to join the workforce soon as I graduate. Like the Japanese would say, I am a blank
+            canvas, awaiting to be painted in company colours. I&#39;m always looking for opportunities to learn and
+            grow, and I&#39;m confident that I can be a valuable asset to any team.
           </div>
           <div class="lg:hidden w-full h-64">
             <div class="about-image"></div>
           </div>
         </div>
       </div>
-      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 lg:self-start w-full h-64 p-2">
+      <div class="hidden lg:block lg:col-start-2 lg:col-span-2 w-full h-64 p-2 animate-once">
         <div class="about-image"></div>
       </div>
-      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 lg:self-start row-span-1 w-full flex">
+      <div class="col-start-2 col-span-10 lg:col-start-5 lg:col-span-7 row-span-1 w-full flex animate-once">
         <div class="flex flex-col gap-y-4 justify-center">
           <div class="about-item-title">Life</div>
           <div class="about-item-text">
-            In my pastime, I like to watch movies (preferably comedy or thriller), documentaries, listen to music (any
-            language or genre). I also love cooking although I&#39;m not the best chef. I can be quite introverted at
-            times.
+            In my pastime, I like to watch movies (preferably comedy or thriller) and documentaries. Some of my
+            favourites include Memories of Murder, Casino and most Guy Ritchie or Danny Boyle movies. I am also a huge
+            fan of music and always searching for gems from all over the world. My top 3 bands would likely be Pink
+            Floyd, Radiohead and a tie between The Doors and Fleetwood Mac. I also love cooking and trying out new
+            recipees although I&#39;m not the most skilled (or graceful) chef. I also enjoy playing games once in a
+            while. Mostly singleplayer titles such as the Yakuza series or Far Cry. Although I never shy away in social
+            settings, I can still be quite introverted at times. Let's not go that deep into my psyche for now.
           </div>
           <div class="lg:hidden w-full h-64">
             <div class="about-image"></div>

@@ -12,11 +12,35 @@ window.addEventListener("DOMContentLoaded", function () {
   // Add the theme switch event listener.
   themeSwitch.addEventListener("change", switchTheme, false);
 
+  // Add animation classes to skill and portfolio items.
+  const skillAndPortfolioItems = document.querySelectorAll(".skill-item, .portfolio-item");
+  skillAndPortfolioItems.forEach((item) => {
+    item.classList.add("animate-once");
+  });
+
+  // Function to get the current scroll position.
+  function getScrollPosition() {
+    return window.pageYOffset || window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
+  }
+
+  // The current scroll position.
+  let scrollPosition = getScrollPosition();
+  function checkAnimateableElements() {
+    // The elements to be animated once.
+    const animateOnceElements = document.getElementsByClassName("animate-once");
+    for (let i = 0; i < animateOnceElements.length; i++) {
+      if (scrollPosition + window.innerHeight >= animateOnceElements[i].offsetTop) {
+        // The element is visible. Animate.
+        animateOnceElements[i].classList.add("animate");
+        animateOnceElements[i].classList.remove("animate-once");
+      }
+    }
+  }
+  checkAnimateableElements();
+
   // The scroll event handler.
   function handleScroll() {
-    // The current scroll position.
-    let scrollPosition =
-      window.pageYOffset || window.scrollY || document.body.scrollTop || document.documentElement.scrollTop;
+    scrollPosition = getScrollPosition();
 
     // All the page items i.e., sections of the page.
     let pageItemElements = document.getElementsByClassName("page-item");
@@ -84,6 +108,18 @@ window.addEventListener("DOMContentLoaded", function () {
         skillItemLevels[i].classList.remove("animate");
       }
     }
+
+    // The elements to be animated once.
+    const animateOnceElements = document.getElementsByClassName("animate-once");
+    for (let i = 0; i < animateOnceElements.length; i++) {
+      if (scrollPosition + window.innerHeight >= animateOnceElements[i].offsetTop) {
+        // The element is visible. Animate.
+        animateOnceElements[i].classList.add("animate");
+        animateOnceElements[i].classList.remove("animate-once");
+      }
+    }
+
+    checkAnimateableElements();
   }
 
   // Add the scroll event listener.
