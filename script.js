@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", function () {
   // Get the theme switch input button.
   const themeSwitch = document.querySelector('#theme-switch label input[type="checkbox"]');
 
@@ -99,4 +99,4 @@ window.onload = function () {
   for (let i = 0; i < navbarMenuItems.length; i++) {
     navbarMenuItems[i].addEventListener("click", toggleNavbarMenu);
   }
-};
+});
