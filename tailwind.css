@@ -1044,6 +1044,14 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
+}
+
 .font-mono {
   font-family: Fira Code, monospace;
 }
@@ -1813,10 +1821,6 @@ header::after {
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:h-screen {
-    height: 100vh;
   }
 
   .lg\:grid-cols-3 {
